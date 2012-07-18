@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="Le-css/src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="/home/lukas/Downloads/commons-lang3-3.1.jar"/>
+	<classpathentry kind="lib" path="/home/lukas/Downloads/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="/home/lukas/Downloads/js-14.jar"/>
+	<classpathentry kind="lib" path="/home/lukas/Downloads/lesscss-1.3.0.jar"/>
+	<classpathentry kind="lib" path="/home/lukas/Downloads/commons-io-2.4.jar"/>
+	<classpathentry kind="lib" path="/home/lukas/Downloads/filedrop.jar"/>
+	<classpathentry kind="output" path="Le-css/bin"/>
+</classpath>
