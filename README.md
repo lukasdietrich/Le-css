@@ -8,3 +8,5 @@ It uses the following libraries:
 	+ [Apache Commons Logging 1.1.1](http://commons.apache.org/logging/)
 	+ [Rhino: JavaScript for Java 1.7R3](http://www.mozilla.org/rhino/)
 - [filedrop](http://iharder.sourceforge.net/current/java/filedrop/)
+
+> [project-page](http://project.splashfish.de/Le-css/)
