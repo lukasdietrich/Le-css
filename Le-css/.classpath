@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="bin" path="bin"/>
+	<classpathentry kind="src" path="bin"/>
+	<classpathentry kind="src" path=".settings"/>
 	<classpathentry kind="lib" path="/home/lukas/Downloads/commons-io-2.4.jar"/>
 	<classpathentry kind="lib" path="/home/lukas/Downloads/commons-lang3-3.1.jar"/>
 	<classpathentry kind="lib" path="/home/lukas/Downloads/commons-logging-1.1.1.jar"/>
 	<classpathentry kind="lib" path="/home/lukas/Downloads/filedrop.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="/home/lukas/Downloads/js-14.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
