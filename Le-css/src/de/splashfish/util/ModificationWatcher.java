@@ -17,6 +17,7 @@ public class ModificationWatcher {
 		timer.schedule(new TimerTask() {
 			@Override public void run() {
 				ArrayList<File> hasChanged = new ArrayList<File>();
+				
 				for(FileWatcher watcher : watchers) {
 					if(watcher.hasChanged())
 						hasChanged.add(watcher.getFile());
@@ -71,7 +72,7 @@ class FileWatcher {
 	
 	public boolean hasChanged() {
 		long current = file.lastModified();
-		if(current != timestamp) {
+		if(current > timestamp) {
 			timestamp = current;
 			return true;
 		}

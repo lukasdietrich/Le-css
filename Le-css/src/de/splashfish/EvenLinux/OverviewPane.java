@@ -72,7 +72,6 @@ public class OverviewPane extends JPanel {
 					final ItemDefinition current = ((ItemDefinition)model.get(index));
 					OptionPopup popup = new OptionPopup(current, new Runnable() {
 																	@Override public void run() {
-																		modlistener.removeWatcher(current.getShift().get(FileShift.FROM_FILE));
 																		model.remove(index);
 																		list.repaint();
 																		
@@ -103,9 +102,11 @@ public class OverviewPane extends JPanel {
 
 			@Override public void fileModified(ModificationEvent e) {
 				
-				for(File file : e.getFiles()) {
-					compiler.addToQueue((ItemDefinition) model.get(itemId.get(file)));
-				}
+				if(e.getFiles().length > 0)
+					for(File file : compile_list) {
+						if(model.size() >= itemId.get(file))
+							compiler.addToQueue((ItemDefinition) model.get(itemId.get(file)));
+					}
 				
 			}
 			
@@ -138,7 +139,7 @@ public class OverviewPane extends JPanel {
 			try {
 				BufferedReader br = new BufferedReader(new FileReader(ignore_file));
 				while((line = br.readLine()) != null) {
-					ignore_list.add(new File(line));
+					ignore_list.add(new File(line).getAbsoluteFile());
 				}
 				br.close();
 			} catch (FileNotFoundException e) {
@@ -149,6 +150,7 @@ public class OverviewPane extends JPanel {
 		}
 	}
 	
+	private ArrayList<File> compile_list = new ArrayList<File>();
 	public boolean listFiles(File[] projectfolder) {
 		this.ignore_file = new File(projectfolder[0] + File.separator + ".lecss_ignore");
 		listIgnores();
@@ -171,16 +173,22 @@ public class OverviewPane extends JPanel {
 		return model.getSize() > 0;
 	}
 	
+	
 	private void addToList(File dir){
 		if(dir instanceof File) {
+			dir = dir.getAbsoluteFile();
+			
 	        if(dir.isFile()) {
-	            if(dir.getName().endsWith(".less") && !ignore_list.contains(dir)) {
-	            	model.addElement(new ItemDefinition(dir, new File(
-	            				dir.getAbsolutePath().substring(
-	            						0, dir.getAbsolutePath().lastIndexOf(".less")
-	            					)
-	            				+ ".css"
-	            			)));
+	            if(dir.getName().endsWith(".less") ) {
+	            	if(!ignore_list.contains(dir)) {
+		            	model.addElement(new ItemDefinition(dir, new File(
+		            				dir.getAbsolutePath().substring(
+		            						0, dir.getAbsolutePath().lastIndexOf(".less")
+		            					)
+		            				+ ".css"
+		            			)));
+		            	compile_list.add(dir);
+	            	}
 	            	modlistener.addWatcher(dir);
 	            }
 	        } else {
