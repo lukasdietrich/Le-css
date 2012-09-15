@@ -5,7 +5,7 @@ import javax.swing.UIManager;
 
 public class LeCss {
 
-	public	final static float 	VERSION = 0.2f;
+	public	final static float 	VERSION = 0.3f;
 	
 	public static void main(String[] args) {
 		Gui gui = new Gui();
