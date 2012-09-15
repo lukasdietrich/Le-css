@@ -23,7 +23,12 @@ public class FileShift {
 		}
 	}
 	
-	public boolean equals(FileShift shift) {
-		return (from.equals(shift.get(FROM_FILE)) && to.equals(shift.get(TO_FILE)));
+	@Override
+	public boolean equals(Object obj) {
+		if(obj instanceof FileShift) {
+			FileShift shift = (FileShift) obj;
+			return (from.equals(shift.get(FROM_FILE)) && to.equals(shift.get(TO_FILE)));
+		}
+		return false;
 	}
 }

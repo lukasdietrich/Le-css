@@ -75,6 +75,9 @@ public class OverviewPane extends JPanel {
 																		model.remove(index);
 																		list.repaint();
 																		
+																		compile_list.remove(current);
+																		ignore_list.add(current.getShift().get(FileShift.FROM_FILE));
+																		
 																		try {
 																			if(!ignore_file.exists()) {
 																				ignore_file.createNewFile();

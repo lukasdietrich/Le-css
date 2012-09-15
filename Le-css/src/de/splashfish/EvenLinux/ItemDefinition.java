@@ -55,4 +55,13 @@ public class ItemDefinition {
 		return shift.get(FileShift.FROM_FILE).getName();
 	}
 	
+	@Override
+	public boolean equals(Object obj) {
+		if(obj instanceof ItemDefinition) {
+			ItemDefinition def = (ItemDefinition) obj;
+			return this.state == def.state && this.shift.equals(def.shift);
+		}
+		return false;
+	}
+	
 }
